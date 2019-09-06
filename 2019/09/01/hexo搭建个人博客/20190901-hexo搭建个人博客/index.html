@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>hexo搭建个人博客 | 境随心转</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="hexo">
+  
+  
+  
+  
+  <meta name="description" content="hexo搭建个人博客安装node.js安装好后，sudo su 进入root模式node -v查看版本npm -v 查看版本npm install -g cnpm --registry=https://registry.npm.taobao.org建立淘宝镜像,更快一些（cnpm） c n p mcnpm install -g hexo-clicnpm -v查看版本 建立自己blog文件夹cd">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/hexo搭建个人博客/20190901-hexo搭建个人博客/index.html">
+<meta property="og:site_name" content="境随心转">
+<meta property="og:description" content="hexo搭建个人博客安装node.js安装好后，sudo su 进入root模式node -v查看版本npm -v 查看版本npm install -g cnpm --registry=https://registry.npm.taobao.org建立淘宝镜像,更快一些（cnpm） c n p mcnpm install -g hexo-clicnpm -v查看版本 建立自己blog文件夹cd">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/hexo.png">
+<meta property="og:updated_time" content="2019-09-01T08:01:00.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo搭建个人博客">
+<meta name="twitter:description" content="hexo搭建个人博客安装node.js安装好后，sudo su 进入root模式node -v查看版本npm -v 查看版本npm install -g cnpm --registry=https://registry.npm.taobao.org建立淘宝镜像,更快一些（cnpm） c n p mcnpm install -g hexo-clicnpm -v查看版本 建立自己blog文件夹cd">
+<meta name="twitter:image" content="http://yoursite.com/images/hexo.png">
+  
+    <link rel="alternate" href="/atom.xml" title="境随心转" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-hexo搭建个人博客/20190901-hexo搭建个人博客" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      hexo搭建个人博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/09/01/hexo搭建个人博客/20190901-hexo搭建个人博客/" class="article-date">
+	  <time datetime="2019-09-01T07:29:21.000Z" itemprop="datePublished">2019-09-01</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/hexo.png" alt="git思维导图"></p>
+<h1 id="hexo搭建个人博客"><a href="#hexo搭建个人博客" class="headerlink" title="hexo搭建个人博客"></a>hexo搭建个人博客</h1><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><h3 id="安装好后，sudo-su-进入root模式"><a href="#安装好后，sudo-su-进入root模式" class="headerlink" title="安装好后，sudo su 进入root模式"></a>安装好后，sudo su 进入root模式</h3><p><code>node -v</code>查看版本<br><code>npm -v</code> 查看版本<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>建立淘宝镜像,更快一些（cnpm）</p>
+<h3 id="c-n-p-m"><a href="#c-n-p-m" class="headerlink" title="c n p m"></a>c n p m</h3><p><code>cnpm install -g hexo-cli</code><br><code>cnpm -v</code>查看版本</p>
+<h3 id="建立自己blog文件夹"><a href="#建立自己blog文件夹" class="headerlink" title="建立自己blog文件夹"></a>建立自己blog文件夹</h3><p><code>cd Users/Florian_Gao/Desktop/git</code></p>
+<h3 id="pwd-查看一下位置"><a href="#pwd-查看一下位置" class="headerlink" title="pwd 查看一下位置"></a>pwd 查看一下位置</h3><p><code>mkdir blog</code><br><code>pwd</code></p>
+<h3 id="生成安装hexo"><a href="#生成安装hexo" class="headerlink" title="生成安装hexo"></a>生成安装hexo</h3><p><code>sudo hexo init</code></p>
+<h3 id="启动hexo"><a href="#启动hexo" class="headerlink" title="启动hexo"></a>启动hexo</h3><p><code>hexo s</code></p>
+<h2 id="部署到gitbub"><a href="#部署到gitbub" class="headerlink" title="部署到gitbub"></a>部署到gitbub</h2><h3 id="在repo中建立一个-github-io"><a href="#在repo中建立一个-github-io" class="headerlink" title="在repo中建立一个.github.io"></a>在repo中建立一个<githubname>.github.io</githubname></h3><p>在系统blog文件夹中部署一个git的插件<code>cnpm install --save hexo-deployer-git``ll</code><br>还要设置里面一个文件<code>_config.yml</code><br>用<code>vim _config.yml</code>进行修改<br>修改deployer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type： git</span><br><span class="line">repo： 自己仓库的地址</span><br><span class="line">branch： master</span><br></pre></td></tr></table></figure>
+
+<p>注意：上面三个都要在冒号后面有空格<br>有视频 <a href="https://www.bilibili.com/video/av23211850?t=206" target="_blank" rel="noopener">https://www.bilibili.com/video/av23211850?t=206</a></p>
+<h3 id="部署到远端"><a href="#部署到远端" class="headerlink" title="部署到远端"></a>部署到远端</h3><p><code>hexo d</code><br>在github上刷新，输入 Florian-Gao.github.io即可访问</p>
+<h3 id="更换hexo主题"><a href="#更换hexo主题" class="headerlink" title="更换hexo主题"></a>更换hexo主题</h3><p>github.com/litten/hexo-theme-yilia<br>        在blog文档下进行  pwd看下<br>克隆过来到本地blog/themes/yilia<br><code>git clone https://github.com/litten/hexo-theme-yilia.git  themes/yilia</code></p>
+<p>仍然进入<code>vim _config.yml</code>进行修改theme，改成你想要的主题的名字就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean 清理一下</span><br><span class="line">hexo g 生成一下，generator</span><br><span class="line">hexo s 重开一下</span><br><span class="line">hexo d 推到远端</span><br><span class="line">hexo g -d 生成推送</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2><h3 id="在主文件夹-config-yml进行修改"><a href="#在主文件夹-config-yml进行修改" class="headerlink" title="在主文件夹_config.yml进行修改"></a>在主文件夹_config.yml进行修改</h3><p>title<br>subtitle </p>
+<h3 id="如果修改发的文章的地址，在URL中permalink进行修改"><a href="#如果修改发的文章的地址，在URL中permalink进行修改" class="headerlink" title="如果修改发的文章的地址，在URL中permalink进行修改"></a>如果修改发的文章的地址，在URL中permalink进行修改</h3><p>添加图片，要 /路径<br>空格➕路径</p>
+<h2 id="基本写作"><a href="#基本写作" class="headerlink" title="基本写作"></a>基本写作</h2><h3 id="hexo-new-lt-filename-gt-如果名字有空格，要加引号"><a href="#hexo-new-lt-filename-gt-如果名字有空格，要加引号" class="headerlink" title="hexo new &lt;filename&gt;如果名字有空格，要加引号"></a><code>hexo new &lt;filename&gt;</code>如果名字有空格，要加引号</h3><p>标题  <code>new_post_name</code> 进行更改即可<br>update: 可以现实更新时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tags:   如果一个标签就直接在后面写就可以</span><br><span class="line">  -pythin</span><br><span class="line">  -mechine learning    前面两个空格，一个横线，并列着写，并列着写</span><br><span class="line">categories： </span><br><span class="line">  -animals</span><br><span class="line">  -cat      不支持同级分类，是父级和子集</span><br></pre></td></tr></table></figure>
+
+<h3 id="文章内插入图片"><a href="#文章内插入图片" class="headerlink" title="文章内插入图片"></a>文章内插入图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">本地图片</span><br><span class="line">	文件放在 source/images文件夹中</span><br><span class="line">		markdown格式</span><br><span class="line">			![提示文字](/images/test.jpg)</span><br><span class="line">		html</span><br><span class="line">			&lt;img src=&quot;图片路径&quot; alt=&quot;提示文字&quot;&gt;</span><br><span class="line">网络图片</span><br><span class="line">	直接把网络地址的粘进去就可以，两个都可以</span><br><span class="line">好用的图片库</span><br><span class="line">	imgur 图片下载格式已经帮你弄好了</span><br></pre></td></tr></table></figure>
+
+<h3 id="视频代码直接粘过来就可以"><a href="#视频代码直接粘过来就可以" class="headerlink" title="视频代码直接粘过来就可以"></a>视频代码直接粘过来就可以</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iframe格式</span><br><span class="line">	通用模式就可以 </span><br><span class="line">		&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=65746051&amp;cid=114072844&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</span><br><span class="line">		如果要是更改长宽</span><br><span class="line">			&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=65746051&amp;cid=114072844&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; width=&quot;100%&quot; height=&quot;450&quot;&gt; &lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以了</p>
+<h3 id="插入音频，配合文字"><a href="#插入音频，配合文字" class="headerlink" title="插入音频，配合文字"></a>插入音频，配合文字</h3><pre><code>先上传到网易云音乐</code></pre><p>也可以申请电台<br>具体操作<br><a href="https://blog.csdn.net/Mculover666/article/details/90700059" target="_blank" rel="noopener">https://blog.csdn.net/Mculover666/article/details/90700059</a></p>
+<h3 id="文章没插入网址链接"><a href="#文章没插入网址链接" class="headerlink" title="文章没插入网址链接"></a>文章没插入网址链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">类似于超链接</span><br><span class="line">	markdown</span><br><span class="line">		[想说的东西](网址的地址)</span><br><span class="line">			[有趣的网站](https://music.163.com)</span><br><span class="line">	html</span><br><span class="line">		&lt;a href=&quot;网址&quot;&gt;解释的内容&lt;/a&gt;</span><br><span class="line">			&lt;a href=&quot;https://music.163.com&quot;&gt;网易云&lt;/a&gt;</span><br><span class="line">	直接把网址粘过去就可以</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '/css/images/Wechat.jpg',
+  alipayImage: '/css/images/Alipay.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>本文作者:  </strong>Florian-Gao</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>本文链接:  </strong>
+          <a href="/2019/09/01/hexo搭建个人博客/20190901-hexo搭建个人博客/" target="_blank" title="hexo搭建个人博客">http://yoursite.com/2019/09/01/hexo搭建个人博客/20190901-hexo搭建个人博客/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<script type="text/javascript" id="wumiiComments">
+		    var wumiiPermaLink = "http://yoursite.com/2019/09/01/hexo搭建个人博客/20190901-hexo搭建个人博客/"; //请用代码生成文章永久的链接
+		    var wumiiTitle = "hexo搭建个人博客"; //请用代码生成文章标题
+		    var wumiiSitePrefix = "http://yoursite.com"; //安装无觅评论插件的网站的域名，如果是放在子域名上，请提供子域名，如"http://blog.wumii.com"。如果这里填写的域名不对，请自行改正。
+		    var wumiiCommentParams = "&pf=JAVASCRIPT";
+	   	</script>
+		<script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+	</div>
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/02/gitbook使用指南/20190901-gitbook使用指南/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          gitbook使用指南
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/31/git使用指南/20190831-git使用指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">git使用指南</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">hexo搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装好后，sudo-su-进入root模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装好后，sudo su 进入root模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-n-p-m"><span class="nav-number">1.1.2.</span> <span class="nav-text">c n p m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立自己blog文件夹"><span class="nav-number">1.1.3.</span> <span class="nav-text">建立自己blog文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd-查看一下位置"><span class="nav-number">1.1.4.</span> <span class="nav-text">pwd 查看一下位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成安装hexo"><span class="nav-number">1.1.5.</span> <span class="nav-text">生成安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动hexo"><span class="nav-number">1.1.6.</span> <span class="nav-text">启动hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到gitbub"><span class="nav-number">1.2.</span> <span class="nav-text">部署到gitbub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在repo中建立一个-github-io"><span class="nav-number">1.2.1.</span> <span class="nav-text">在repo中建立一个.github.io</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到远端"><span class="nav-number">1.2.2.</span> <span class="nav-text">部署到远端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换hexo主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">更换hexo主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改主题"><span class="nav-number">1.3.</span> <span class="nav-text">更改主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在主文件夹-config-yml进行修改"><span class="nav-number">1.3.1.</span> <span class="nav-text">在主文件夹_config.yml进行修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果修改发的文章的地址，在URL中permalink进行修改"><span class="nav-number">1.3.2.</span> <span class="nav-text">如果修改发的文章的地址，在URL中permalink进行修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本写作"><span class="nav-number">1.4.</span> <span class="nav-text">基本写作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-new-lt-filename-gt-如果名字有空格，要加引号"><span class="nav-number">1.4.1.</span> <span class="nav-text">hexo new &lt;filename&gt;如果名字有空格，要加引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章内插入图片"><span class="nav-number">1.4.2.</span> <span class="nav-text">文章内插入图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频代码直接粘过来就可以"><span class="nav-number">1.4.3.</span> <span class="nav-text">视频代码直接粘过来就可以</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入音频，配合文字"><span class="nav-number">1.4.4.</span> <span class="nav-text">插入音频，配合文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章没插入网址链接"><span class="nav-number">1.4.5.</span> <span class="nav-text">文章没插入网址链接</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 境随心转 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">tags</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            境随心转
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 Florian-Gao All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
