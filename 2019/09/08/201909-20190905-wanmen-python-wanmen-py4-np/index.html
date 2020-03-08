@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>wanmen_py4_np | 境随心转</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="pythonwanmen">
+  
+  
+  
+  
+  <meta name="description" content="py41import numpy as np  列表转换为数组1234a=list(range(10))b=np.array(a)print(b)type(b)  [0 1 2 3 4 5 6 7 8 9]      numpy.ndarray1np.zeros((4,4),dtype=int)  array([[0, 0, 0, 0],        [0, 0, 0, 0],        [">
+<meta name="keywords" content="python,wanmen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wanmen_py4_np">
+<meta property="og:url" content="http://yoursite.com/2019/09/08/201909-20190905-wanmen-python-wanmen-py4-np/index.html">
+<meta property="og:site_name" content="境随心转">
+<meta property="og:description" content="py41import numpy as np  列表转换为数组1234a=list(range(10))b=np.array(a)print(b)type(b)  [0 1 2 3 4 5 6 7 8 9]      numpy.ndarray1np.zeros((4,4),dtype=int)  array([[0, 0, 0, 0],        [0, 0, 0, 0],        [">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-12T02:28:19.241Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wanmen_py4_np">
+<meta name="twitter:description" content="py41import numpy as np  列表转换为数组1234a=list(range(10))b=np.array(a)print(b)type(b)  [0 1 2 3 4 5 6 7 8 9]      numpy.ndarray1np.zeros((4,4),dtype=int)  array([[0, 0, 0, 0],        [0, 0, 0, 0],        [">
+  
+    <link rel="alternate" href="/atom.xml" title="境随心转" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-201909-20190905-wanmen-python-wanmen-py4-np" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      wanmen_py4_np
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/09/08/201909-20190905-wanmen-python-wanmen-py4-np/" class="article-date">
+	  <time datetime="2019-09-08T14:51:49.000Z" itemprop="datePublished">2019-09-08</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="py4"><a href="#py4" class="headerlink" title="py4"></a>py4</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<h2 id="列表转换为数组"><a href="#列表转换为数组" class="headerlink" title="列表转换为数组"></a>列表转换为数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=list(range(<span class="number">10</span>))</span><br><span class="line">b=np.array(a)</span><br><span class="line">print(b)</span><br><span class="line">type(b)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0 1 2 3 4 5 6 7 8 9]
+
+
+
+
+
+numpy.ndarray</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.zeros((<span class="number">4</span>,<span class="number">4</span>),dtype=int)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[0, 0, 0, 0],
+       [0, 0, 0, 0],
+       [0, 0, 0, 0],
+       [0, 0, 0, 0]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b=np.ones((<span class="number">3</span>,<span class="number">4</span>),float)</span><br><span class="line">b</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.full((<span class="number">3</span>,<span class="number">3</span>),<span class="number">3.14</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[3.14, 3.14, 3.14],
+       [3.14, 3.14, 3.14],
+       [3.14, 3.14, 3.14]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.full_like(b,<span class="number">314</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[314., 314., 314., 314.],
+       [314., 314., 314., 314.],
+       [314., 314., 314., 314.]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.zeros_like(b,int)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[0, 0, 0, 0],
+       [0, 0, 0, 0],
+       [0, 0, 0, 0]])</code></pre><h2 id="random"><a href="#random" class="headerlink" title="random"></a>random</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">random.randint(<span class="number">5</span>,<span class="number">10</span>)  <span class="comment">#randint 5-10随机数</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>5</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#3*3数组  random 0-1随机数</span></span><br><span class="line">np.random.random((<span class="number">3</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[0.50325932, 0.2297995 , 0.1392857 ],
+       [0.54897845, 0.16455239, 0.29737913],
+       [0.13850923, 0.29868182, 0.51995168]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#5*5数组（形成随机数，经常用到）</span></span><br><span class="line">np.random.randint(<span class="number">0</span>,<span class="number">10</span>,(<span class="number">5</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[2, 6, 8, 2, 7],
+       [7, 8, 3, 4, 5],
+       [8, 9, 2, 6, 0],
+       [1, 6, 5, 0, 6],
+       [6, 1, 1, 2, 8]])</code></pre><h2 id="范围取值"><a href="#范围取值" class="headerlink" title="范围取值"></a>范围取值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">0</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.arrange(begin,end, step)</span></span><br><span class="line">np.arange(<span class="number">0</span>,<span class="number">10</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([0, 2, 4, 6, 8])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  np.linspace(初始值，末尾值，个数)</span></span><br><span class="line">np.linspace(<span class="number">0</span>,<span class="number">3</span>,<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([0.        , 0.33333333, 0.66666667, 1.        , 1.33333333,
+       1.66666667, 2.        , 2.33333333, 2.66666667, 3.        ])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单位矩阵</span></span><br><span class="line">np.eye(<span class="number">10</span>,dtype=int)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])</code></pre><h2 id="访问数组中元素"><a href="#访问数组中元素" class="headerlink" title="访问数组中元素"></a>访问数组中元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 嵌套列表的元素访问</span></span><br><span class="line">a=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]]</span><br><span class="line">a[<span class="number">1</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>2</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b=np.full((<span class="number">3</span>,<span class="number">3</span>),<span class="number">3</span>,int)</span><br><span class="line">b[<span class="number">0</span>][<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>3</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#另一种方法提取元素</span></span><br><span class="line">b[<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>3</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数组切片 取前两行</span></span><br><span class="line">b[:<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[3, 3, 3],
+       [3, 3, 3]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取前两行和前两列</span></span><br><span class="line">b[:<span class="number">2</span>,:<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[3, 3],
+       [3, 3]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取前两行，再取前两行,与b[:2,:2]不一样</span></span><br><span class="line">b[:<span class="number">2</span>][:<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[3, 3, 3],
+       [3, 3, 3]])</code></pre><h2 id="数组属性"><a href="#数组属性" class="headerlink" title="数组属性"></a>数组属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 维度</span></span><br><span class="line">print(b.ndim)</span><br><span class="line"><span class="comment"># shape  n*n矩阵</span></span><br><span class="line">print(b.shape)</span><br><span class="line"><span class="comment"># size  有多少个数</span></span><br><span class="line">print(b.size)</span><br><span class="line"><span class="comment"># dtype  数据类型</span></span><br><span class="line">print(b.dtype)</span><br><span class="line"><span class="comment"># itemsize  每个树占8个字节</span></span><br><span class="line">print(b.itemsize)</span><br><span class="line"><span class="comment"># nbytes  一共占多少字节，8*9</span></span><br><span class="line">print(b.nbytes)</span><br></pre></td></tr></table></figure>
+
+<pre><code>2
+(3, 3)
+9
+int64
+8
+72</code></pre><h2 id="np运算"><a href="#np运算" class="headerlink" title="np运算"></a>np运算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.full(<span class="number">10</span>,<span class="number">2.3</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([2.3, 2.3, 2.3, 2.3, 2.3, 2.3, 2.3, 2.3, 2.3, 2.3])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">4</span>]])</span><br><span class="line">print(np.sum(a))</span><br><span class="line">print(np.sum(a,axis=<span class="number">1</span>))  <span class="comment"># 按行求和</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>9
+[3 6]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">10</span>)  <span class="comment">#rand and random is same</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>array([0.32042186, 0.0939424 , 0.4289252 , 0.35593387, 0.92730687,
+       0.28779505, 0.90388186, 0.19089802, 0.29240305, 0.11551011])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#和上面一样</span></span><br><span class="line">n=np.random.random(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># timeit 看时间</span></span><br><span class="line">%timeit sum(n)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1.96 µs ± 23.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%timeit np.sum(n)</span><br></pre></td></tr></table></figure>
+
+<pre><code>3.51 µs ± 87.2 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</code></pre><h2 id="bool-比较"><a href="#bool-比较" class="headerlink" title="bool 比较"></a>bool 比较</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=np.array(range(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a&gt;<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>array([False, False, False, False,  True,  True,  True,  True,  True,
+        True])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.reshape(<span class="number">2</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.sort(a)</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre><h2 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#0 按行拼接，1按列拼接</span></span><br><span class="line">a=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">b=[[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line">c=[[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]]</span><br><span class="line">np.concatenate([a,b,c],axis=<span class="number">0</span>) <span class="comment">#0 按行拼接，1按列拼接</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[1, 2, 3],
+       [1, 2, 3],
+       [2, 3, 4],
+       [2, 3, 4],
+       [3, 4, 5],
+       [3, 4, 5]])</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '/css/images/Wechat.jpg',
+  alipayImage: '/css/images/Alipay.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>本文作者:  </strong>Florian-Gao</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>本文链接:  </strong>
+          <a href="/2019/09/08/201909-20190905-wanmen-python-wanmen-py4-np/" target="_blank" title="wanmen_py4_np">http://yoursite.com/2019/09/08/201909-20190905-wanmen-python-wanmen-py4-np/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<script type="text/javascript" id="wumiiComments">
+		    var wumiiPermaLink = "http://yoursite.com/2019/09/08/201909-20190905-wanmen-python-wanmen-py4-np/"; //请用代码生成文章永久的链接
+		    var wumiiTitle = "wanmen_py4_np"; //请用代码生成文章标题
+		    var wumiiSitePrefix = "http://yoursite.com"; //安装无觅评论插件的网站的域名，如果是放在子域名上，请提供子域名，如"http://blog.wumii.com"。如果这里填写的域名不对，请自行改正。
+		    var wumiiCommentParams = "&pf=JAVASCRIPT";
+	   	</script>
+		<script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+	</div>
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wanmen/">wanmen</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/09/201909-20190905-wanmen-python-wanmen-py5-pd/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          wanmen_py5_pd
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/06/201909-20190905-wanmen-python-wanmen-py2-基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">wanmen_py2_基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#py4"><span class="nav-number">1.</span> <span class="nav-text">py4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表转换为数组"><span class="nav-number">1.1.</span> <span class="nav-text">列表转换为数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random"><span class="nav-number">1.2.</span> <span class="nav-text">random</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范围取值"><span class="nav-number">1.3.</span> <span class="nav-text">范围取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问数组中元素"><span class="nav-number">1.4.</span> <span class="nav-text">访问数组中元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组属性"><span class="nav-number">1.5.</span> <span class="nav-text">数组属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np运算"><span class="nav-number">1.6.</span> <span class="nav-text">np运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bool-比较"><span class="nav-number">1.7.</span> <span class="nav-text">bool 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拼接"><span class="nav-number">1.8.</span> <span class="nav-text">拼接</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 境随心转 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">tags</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            境随心转
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Florian-Gao All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>wanmen_py5_pdplot | 境随心转</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="pythonwanmen">
+  
+  
+  
+  
+  <meta name="description" content="12import pandas as pddf=pd.read_csv(&apos;/Users/Florian_Gao/Desktop/git/github/wanmen-python/modol.csv&apos;)  1df        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }  .dataframe">
+<meta name="keywords" content="python,wanmen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wanmen_py5_pdplot">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/201909-20190905-wanmen-python-wanmen-py5-pdplot/index.html">
+<meta property="og:site_name" content="境随心转">
+<meta property="og:description" content="12import pandas as pddf=pd.read_csv(&apos;/Users/Florian_Gao/Desktop/git/github/wanmen-python/modol.csv&apos;)  1df        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }  .dataframe">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_7_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_8_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_11_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_13_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_14_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_15_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_17_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_18_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_20_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_21_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_22_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_23_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_24_1.png">
+<meta property="og:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_25_1.png">
+<meta property="og:updated_time" content="2019-09-12T02:46:41.606Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wanmen_py5_pdplot">
+<meta name="twitter:description" content="12import pandas as pddf=pd.read_csv(&apos;/Users/Florian_Gao/Desktop/git/github/wanmen-python/modol.csv&apos;)  1df        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }  .dataframe">
+<meta name="twitter:image" content="http://yoursite.com/.com//wanmen_py5_pdplot_7_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="境随心转" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-201909-20190905-wanmen-python-wanmen-py5-pdplot" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      wanmen_py5_pdplot
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/09/10/201909-20190905-wanmen-python-wanmen-py5-pdplot/" class="article-date">
+	  <time datetime="2019-09-10T14:51:49.000Z" itemprop="datePublished">2019-09-10</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df=pd.read_csv(<span class="string">'/Users/Florian_Gao/Desktop/git/github/wanmen-python/modol.csv'</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>语文</th>
+      <th>数学</th>
+      <th>英语</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>高</td>
+      <td>男</td>
+      <td>120</td>
+      <td>110</td>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>李</td>
+      <td>男</td>
+      <td>110</td>
+      <td>129</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>赵</td>
+      <td>女</td>
+      <td>111</td>
+      <td>123</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>孙</td>
+      <td>女</td>
+      <td>124</td>
+      <td>145</td>
+      <td>143</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>兰</td>
+      <td>男</td>
+      <td>122</td>
+      <td>133</td>
+      <td>144</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'new_score'</span>]=df.apply(<span class="keyword">lambda</span> x:x.数学+x.语文,axis=<span class="number">1</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>语文</th>
+      <th>数学</th>
+      <th>英语</th>
+      <th>new_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>高</td>
+      <td>男</td>
+      <td>120</td>
+      <td>110</td>
+      <td>130</td>
+      <td>230</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>李</td>
+      <td>男</td>
+      <td>110</td>
+      <td>129</td>
+      <td>131</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>赵</td>
+      <td>女</td>
+      <td>111</td>
+      <td>123</td>
+      <td>124</td>
+      <td>234</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>孙</td>
+      <td>女</td>
+      <td>124</td>
+      <td>145</td>
+      <td>143</td>
+      <td>269</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>兰</td>
+      <td>男</td>
+      <td>122</td>
+      <td>133</td>
+      <td>144</td>
+      <td>255</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df=df.drop([<span class="string">'new_score'</span>],axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>语文</th>
+      <th>数学</th>
+      <th>英语</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>高</td>
+      <td>男</td>
+      <td>120</td>
+      <td>110</td>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>李</td>
+      <td>男</td>
+      <td>110</td>
+      <td>129</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>赵</td>
+      <td>女</td>
+      <td>111</td>
+      <td>123</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>孙</td>
+      <td>女</td>
+      <td>124</td>
+      <td>145</td>
+      <td>143</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>兰</td>
+      <td>男</td>
+      <td>122</td>
+      <td>133</td>
+      <td>144</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h1 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline  </span><br><span class="line"><span class="comment"># 说明要画在notebook中</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=np.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">100</span>)</span><br><span class="line">y=np.sin(x)</span><br><span class="line">plt.plot(x,y)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x1a22542cc0&gt;]</code></pre><p><img src="/.com//wanmen_py5_pdplot_7_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig=plt.figure()</span><br><span class="line">plt.plot(x,y,<span class="string">'--'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x1a226a2cc0&gt;]</code></pre><p><img src="/.com//wanmen_py5_pdplot_8_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#保存图片，与点击保存效果相同</span></span><br><span class="line">fig.savefig(<span class="string">'/Users/Florian_Gao/Desktop/git/github/wanmen-python/first_plot.png'</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="分块"><a href="#分块" class="headerlink" title="分块"></a>分块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">plt.plot(x,y,<span class="string">'--'</span>,label=<span class="string">'sinx'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">plt.plot(x,np.cos(x),<span class="string">'--'</span>,color=<span class="string">'r'</span>,label=<span class="string">'cosx'</span>)</span><br><span class="line"><span class="comment"># legend控制label的显示效果</span></span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.legend.Legend at 0x1a22790860&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_11_1.png" alt="png"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot?</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xlim ylim</span></span><br><span class="line">plt.xlim(<span class="number">0</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(0, 1)</code></pre><p><img src="/.com//wanmen_py5_pdplot_13_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x,y)  <span class="comment">#点状图</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x1a22a54860&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_14_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="comment"># 改变样式</span></span><br><span class="line">plt.style.use(<span class="string">'classic'</span>)</span><br><span class="line"></span><br><span class="line">x=np.random.randn(<span class="number">100</span>) <span class="comment">#均值0，方差1</span></span><br><span class="line">y=np.random.randn(<span class="number">100</span>) </span><br><span class="line">colors=np.random.rand(<span class="number">100</span>)</span><br><span class="line">sizes=<span class="number">1000</span>*np.random.rand(<span class="number">100</span>)</span><br><span class="line">plt.scatter(x,y,c=colors,s=sizes,alpha=<span class="number">0.4</span>)</span><br><span class="line">plt.colorbar()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x1a22b649b0&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_15_1.png" alt="png"></p>
+<h2 id="pandas-本身自带绘画"><a href="#pandas-本身自带绘画" class="headerlink" title="pandas 本身自带绘画"></a>pandas 本身自带绘画</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df=pd.DataFrame(np.random.rand(<span class="number">100</span>,<span class="number">4</span>).cumsum(<span class="number">0</span>),columns=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>])</span><br><span class="line"><span class="comment">#comsum 是加和操作 0 按行/1 按列</span></span><br><span class="line">df.plot()</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.289320</td>
+      <td>0.372710</td>
+      <td>0.051150</td>
+      <td>0.019810</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.870367</td>
+      <td>1.203777</td>
+      <td>0.615242</td>
+      <td>0.735907</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.275859</td>
+      <td>1.596964</td>
+      <td>0.738416</td>
+      <td>1.724947</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.688890</td>
+      <td>1.935973</td>
+      <td>0.902156</td>
+      <td>1.758310</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.499074</td>
+      <td>2.698976</td>
+      <td>1.019705</td>
+      <td>2.375565</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<p><img src="/.com//wanmen_py5_pdplot_17_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df=pd.DataFrame(np.random.rand(<span class="number">100</span>,<span class="number">4</span>),columns=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>])</span><br><span class="line">df.plot()</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.061443</td>
+      <td>0.842002</td>
+      <td>0.241945</td>
+      <td>0.455003</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.501737</td>
+      <td>0.168112</td>
+      <td>0.050991</td>
+      <td>0.418404</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.940408</td>
+      <td>0.085285</td>
+      <td>0.573517</td>
+      <td>0.259610</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.423264</td>
+      <td>0.796483</td>
+      <td>0.684808</td>
+      <td>0.929808</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.317713</td>
+      <td>0.310176</td>
+      <td>0.148773</td>
+      <td>0.330037</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<p><img src="/.com//wanmen_py5_pdplot_18_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp=pd.DataFrame(np.random.randint(<span class="number">30</span>,<span class="number">50</span>,(<span class="number">3</span>,<span class="number">4</span>)),columns=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>],index=[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>])</span><br><span class="line">dp</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>31</td>
+      <td>34</td>
+      <td>39</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>46</td>
+      <td>30</td>
+      <td>30</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>39</td>
+      <td>41</td>
+      <td>39</td>
+      <td>46</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp.plot.bar()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a22a06588&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_20_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp.B.plot.bar()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a22dd5710&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_21_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用kind 来进行画图</span></span><br><span class="line">dp.plot(kind=<span class="string">'bar'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a22f2cac8&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_22_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行累加</span></span><br><span class="line">dp.plot(kind=<span class="string">'bar'</span>,stacked=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a2308c940&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_23_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 直方图  figersize 图像大小 ，可以查看说明，进行具体项目的修改</span></span><br><span class="line">dp.hist(figsize=(<span class="number">9</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x1a23209208&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x1a2322f828&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x1a23344da0&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x1a23377358&gt;]],
+      dtype=object)</code></pre><p><img src="/.com//wanmen_py5_pdplot_24_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 密度图</span></span><br><span class="line">dp.plot.kde()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a234aa4a8&gt;</code></pre><p><img src="/.com//wanmen_py5_pdplot_25_1.png" alt="png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '/css/images/Wechat.jpg',
+  alipayImage: '/css/images/Alipay.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>本文作者:  </strong>Florian-Gao</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>本文链接:  </strong>
+          <a href="/2019/09/10/201909-20190905-wanmen-python-wanmen-py5-pdplot/" target="_blank" title="wanmen_py5_pdplot">http://yoursite.com/2019/09/10/201909-20190905-wanmen-python-wanmen-py5-pdplot/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<script type="text/javascript" id="wumiiComments">
+		    var wumiiPermaLink = "http://yoursite.com/2019/09/10/201909-20190905-wanmen-python-wanmen-py5-pdplot/"; //请用代码生成文章永久的链接
+		    var wumiiTitle = "wanmen_py5_pdplot"; //请用代码生成文章标题
+		    var wumiiSitePrefix = "http://yoursite.com"; //安装无觅评论插件的网站的域名，如果是放在子域名上，请提供子域名，如"http://blog.wumii.com"。如果这里填写的域名不对，请自行改正。
+		    var wumiiCommentParams = "&pf=JAVASCRIPT";
+	   	</script>
+		<script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+	</div>
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wanmen/">wanmen</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/11/201909-20190911-AI-change-yourlife-AI-change-yourlife/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          AI_change_yourlife
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/09/201909-20190905-wanmen-python-wanmen-py5-pd/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">wanmen_py5_pd</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绘图"><span class="nav-number">1.</span> <span class="nav-text">绘图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分块"><span class="nav-number">1.1.</span> <span class="nav-text">分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pandas-本身自带绘画"><span class="nav-number">1.2.</span> <span class="nav-text">pandas 本身自带绘画</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 境随心转 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">tags</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            境随心转
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Florian-Gao All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

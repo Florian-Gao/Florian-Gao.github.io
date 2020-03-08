@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>multiprocessing/多进程 | 境随心转</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="python">
+  
+  
+  
+  
+  <meta name="description" content="import12import multiprocessing as mpimport threading as td  定义一个被线程和进程调用的函数12def job(a,d)    print(&amp;apos;aaaa&amp;apos;)  创建线程和进程注意：Thread和Process的首字母都要大写，被调用的函数没有括号，被调用的函数的参数放在args(…)中 12t1=td.Thread(ta">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multiprocessing&#x2F;多进程">
+<meta property="og:url" content="http://yoursite.com/2019/09/04/201909-20190904-Multiprocessing-20190904-Multiprocessing/index.html">
+<meta property="og:site_name" content="境随心转">
+<meta property="og:description" content="import12import multiprocessing as mpimport threading as td  定义一个被线程和进程调用的函数12def job(a,d)    print(&amp;apos;aaaa&amp;apos;)  创建线程和进程注意：Thread和Process的首字母都要大写，被调用的函数没有括号，被调用的函数的参数放在args(…)中 12t1=td.Thread(ta">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/multiprocessing.png">
+<meta property="og:image" content="http://yoursite.com/images/%E5%8F%82%E6%95%B0%E6%95%B0%E6%8D%AE%E5%BD%A2%E5%BC%8F.png">
+<meta property="og:updated_time" content="2019-09-05T13:27:21.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Multiprocessing&#x2F;多进程">
+<meta name="twitter:description" content="import12import multiprocessing as mpimport threading as td  定义一个被线程和进程调用的函数12def job(a,d)    print(&amp;apos;aaaa&amp;apos;)  创建线程和进程注意：Thread和Process的首字母都要大写，被调用的函数没有括号，被调用的函数的参数放在args(…)中 12t1=td.Thread(ta">
+<meta name="twitter:image" content="http://yoursite.com/images/multiprocessing.png">
+  
+    <link rel="alternate" href="/atom.xml" title="境随心转" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-201909-20190904-Multiprocessing-20190904-Multiprocessing" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Multiprocessing/多进程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/09/04/201909-20190904-Multiprocessing-20190904-Multiprocessing/" class="article-date">
+	  <time datetime="2019-09-04T13:21:20.000Z" itemprop="datePublished">2019-09-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/multiprocessing.png" alt="multiprocessing"></p>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line">import threading as td</span><br></pre></td></tr></table></figure>
+
+<h4 id="定义一个被线程和进程调用的函数"><a href="#定义一个被线程和进程调用的函数" class="headerlink" title="定义一个被线程和进程调用的函数"></a>定义一个被线程和进程调用的函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def job(a,d)</span><br><span class="line">    print(&apos;aaaa&apos;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建线程和进程"><a href="#创建线程和进程" class="headerlink" title="创建线程和进程"></a>创建线程和进程</h4><p>注意：Thread和Process的首字母都要大写，被调用的函数没有括号，被调用的函数的参数放在args(…)中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1=td.Thread(target=job,args=(1,2))</span><br><span class="line">p1 = mp.Process(target=job,args=(1,2))</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动线程和进程"><a href="#启动线程和进程" class="headerlink" title="启动线程和进程"></a>启动线程和进程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1.start()</span><br><span class="line">p1.start()</span><br></pre></td></tr></table></figure>
+
+<h4 id="分别连接线程和进程"><a href="#分别连接线程和进程" class="headerlink" title="分别连接线程和进程"></a>分别连接线程和进程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1.join()</span><br><span class="line">d1.join()</span><br></pre></td></tr></table></figure>
+
+<h4 id="full-code"><a href="#full-code" class="headerlink" title="full code"></a>full code</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line">import threading as td</span><br><span class="line"></span><br><span class="line">def job(a,d):</span><br><span class="line">    print(&apos;aaaaa&apos;)</span><br><span class="line"></span><br><span class="line">t1 = td.Thread(target=job,args=(1,2))</span><br><span class="line">p1 = mp.Process(target=job,args=(1,2))</span><br><span class="line">t1.start()</span><br><span class="line">p1.start()</span><br><span class="line">t1.join()    # 分别连接线程和进程</span><br><span class="line">p1.join()</span><br></pre></td></tr></table></figure>
+
+<h4 id="use"><a href="#use" class="headerlink" title="use"></a>use</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if __name__=&apos;__main__&apos;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line"></span><br><span class="line">def job(a,d):</span><br><span class="line">    print(&apos;aaaaa&apos;)</span><br><span class="line"></span><br><span class="line">if __name__==&apos;__main__&apos;:</span><br><span class="line">    p1 = mp.Process(target=job,args=(1,2))</span><br><span class="line">    p1.start()</span><br><span class="line">    p1.join()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Queen-use-to-store-process"><a href="#Queen-use-to-store-process" class="headerlink" title="Queen #use to store process"></a>Queen #use to store process</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line"></span><br><span class="line">def job(q):</span><br><span class="line">    res=0</span><br><span class="line">    for i in range(1000):</span><br><span class="line">        res+=i+i**2+i**3</span><br><span class="line">    q.put(res)    #queue  put data in queen</span><br><span class="line"></span><br><span class="line">if __name__==&apos;__main__&apos;:</span><br><span class="line">    q = mp.Queue()</span><br><span class="line">    p1 = mp.Process(target=job,args=(q,))</span><br><span class="line">    p2 = mp.Process(target=job,args=(q,))</span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line">    p1.join()</span><br><span class="line">    p2.join()</span><br><span class="line">    res1 = q.get()   #get  the data</span><br><span class="line">    res2 = q.get()</span><br><span class="line">    print(res1+res2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="multiprocessing-and-threading-compare"><a href="#multiprocessing-and-threading-compare" class="headerlink" title="multiprocessing and threading compare"></a>multiprocessing and threading compare</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line">import threading as td</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def job(q):</span><br><span class="line">    res = 0</span><br><span class="line">    for i in range(1000000):</span><br><span class="line">        res += i+i**2+i**3</span><br><span class="line">    q.put(res) # queue</span><br><span class="line"></span><br><span class="line">def multicore():</span><br><span class="line">    q = mp.Queue()</span><br><span class="line">    p1 = mp.Process(target=job, args=(q,))</span><br><span class="line">    p2 = mp.Process(target=job, args=(q,))</span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line">    p1.join()</span><br><span class="line">    p2.join()</span><br><span class="line">    res1 = q.get()</span><br><span class="line">    res2 = q.get()</span><br><span class="line">    print(&apos;multicore:&apos; , res1+res2)</span><br><span class="line"></span><br><span class="line">def normal():</span><br><span class="line">    res = 0</span><br><span class="line">    for _ in range(2):</span><br><span class="line">        for i in range(1000000):</span><br><span class="line">            res += i+i**2+i**3</span><br><span class="line">    print(&apos;normal:&apos;, res)</span><br><span class="line"></span><br><span class="line">def multithread():</span><br><span class="line">    q = mp.Queue()</span><br><span class="line">    t1 = td.Thread(target=job, args=(q,))</span><br><span class="line">    t2 = td.Thread(target=job, args=(q,))</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br><span class="line">    res1 = q.get()</span><br><span class="line">    res2 = q.get()</span><br><span class="line">    print(&apos;multithread:&apos;, res1+res2)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    st = time.time()</span><br><span class="line">    normal()</span><br><span class="line">    st1= time.time()</span><br><span class="line">    print(&apos;normal time:&apos;, st1 - st)</span><br><span class="line">    multithread()</span><br><span class="line">    st2 = time.time()</span><br><span class="line">    print(&apos;multithread time:&apos;, st2 - st1)</span><br><span class="line">    multicore()</span><br><span class="line">    print(&apos;multicore time:&apos;, time.time()-st2)</span><br><span class="line">finally, we find multicore is the fastest, multithread is the slowest</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pool-the-processing-pool"><a href="#Pool-the-processing-pool" class="headerlink" title="Pool #the processing pool"></a>Pool #the processing pool</h3><p>`pool will get a return value, but process can’t get the return value.’<br>pool call the core of CPU, the parameter of processing can design the core’s number of CPU</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line"></span><br><span class="line">def job(x):</span><br><span class="line">    return x*x</span><br><span class="line"></span><br><span class="line">def multicore():</span><br><span class="line">    pool = mp.Pool(processes=2)  # define the pool, the num in braket(括号) is the core&apos;s num</span><br><span class="line">    res = pool.map(job, range(10)) # return results</span><br><span class="line">    print(res)  #[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span><br><span class="line">    res = pool.apply_async(job, (2,))   </span><br><span class="line">    #this way can only get one result, and it will be put in only one core to calculate,  attention ,there is a comma（逗号）</span><br><span class="line">    print(res.get())</span><br><span class="line">    multi_res =[pool.apply_async(job, (i,)) for i in range(10)]   #put into iterator  </span><br><span class="line">    print([res.get() for res in multi_res])  # get from the iterator</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    multicore()</span><br></pre></td></tr></table></figure>
+
+<h3 id="share-memory-共享内存"><a href="#share-memory-共享内存" class="headerlink" title="share memory  (共享内存)"></a>share memory  (共享内存)</h3><h4 id="shared-value"><a href="#shared-value" class="headerlink" title="shared value"></a>shared value</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line"></span><br><span class="line">value1 = mp.Value(&apos;i&apos;, 0) </span><br><span class="line">value2 = mp.Value(&apos;d&apos;, 3.14)</span><br><span class="line"># i、d 是设置数据类型的，i代表带符号的整型，d代表双精度浮点类型</span><br></pre></td></tr></table></figure>
+
+<h4 id="shared-array"><a href="#shared-array" class="headerlink" title="shared array"></a>shared array</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array = mp.Array(&apos;i&apos;, [1, 2, 3, 4])   # is right</span><br><span class="line"></span><br><span class="line">array = mp.Array(&apos;i&apos;, [[1, 2], [3, 4]]) # 2维list</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">TypeError: an integer is required</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">## Array is different from numpy, it only be one dimensional, can&apos;t be multi-dimensional</span><br></pre></td></tr></table></figure>
+
+<h3 id="parametric-data-form"><a href="#parametric-data-form" class="headerlink" title="parametric data form"></a>parametric data form</h3><p><img src="/images/%E5%8F%82%E6%95%B0%E6%95%B0%E6%8D%AE%E5%BD%A2%E5%BC%8F.png" alt="参数数据形式"></p>
+<h3 id="processing-lock"><a href="#processing-lock" class="headerlink" title="processing lock"></a>processing lock</h3><h4 id="no-lock"><a href="#no-lock" class="headerlink" title="no lock"></a>no lock</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import multiprocessing as mp</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def job(v, num):</span><br><span class="line">    for _ in range(5):</span><br><span class="line">        time.sleep(0.1) # 暂停0.1秒，让输出效果更明显</span><br><span class="line">        v.value += num # v.value获取共享变量值</span><br><span class="line">        print(v.value, end=&quot;&quot;)</span><br><span class="line">        </span><br><span class="line">def multicore():</span><br><span class="line">    v = mp.Value(&apos;i&apos;, 0) # 定义共享变量</span><br><span class="line">    p1 = mp.Process(target=job, args=(v,1))</span><br><span class="line">    p2 = mp.Process(target=job, args=(v,3)) # 设定不同的number看如何抢夺内存</span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line">    p1.join()</span><br><span class="line">    p2.join()</span><br><span class="line">    </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    multicore()</span><br></pre></td></tr></table></figure>
+
+<p>the result/ process 1 and  process 2  battle for the shared memory</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+
+<h4 id="if-we-add-process-lock-l-mp-lock"><a href="#if-we-add-process-lock-l-mp-lock" class="headerlink" title="if we add process lock ## l=mp.lock()"></a>if we add process lock ## l=mp.lock()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def job(v, num, l):</span><br><span class="line">    l.acquire() # 锁住</span><br><span class="line">    for _ in range(5):</span><br><span class="line">        time.sleep(0.1) </span><br><span class="line">        v.value += num # 获取共享内存</span><br><span class="line">        print(v.value)</span><br><span class="line">    l.release() # 释放</span><br><span class="line"></span><br><span class="line">def multicore():</span><br><span class="line">    l = mp.Lock() # 定义一个进程锁</span><br><span class="line">    v = mp.Value(&apos;i&apos;, 0) # 定义共享内存</span><br><span class="line">    p1 = mp.Process(target=job, args=(v,1,l)) # 需要将lock传入</span><br><span class="line">    p2 = mp.Process(target=job, args=(v,3,l)) </span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line">    p1.join()</span><br><span class="line">    p2.join()</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    multicore()</span><br></pre></td></tr></table></figure>
+
+<p>the result #when p 1 is done, p 2 begins</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">8</span><br><span class="line">11</span><br><span class="line">14</span><br><span class="line">17</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '/css/images/Wechat.jpg',
+  alipayImage: '/css/images/Alipay.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>本文作者:  </strong>Florian-Gao</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>本文链接:  </strong>
+          <a href="/2019/09/04/201909-20190904-Multiprocessing-20190904-Multiprocessing/" target="_blank" title="Multiprocessing/多进程">http://yoursite.com/2019/09/04/201909-20190904-Multiprocessing-20190904-Multiprocessing/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<script type="text/javascript" id="wumiiComments">
+		    var wumiiPermaLink = "http://yoursite.com/2019/09/04/201909-20190904-Multiprocessing-20190904-Multiprocessing/"; //请用代码生成文章永久的链接
+		    var wumiiTitle = "Multiprocessing/多进程"; //请用代码生成文章标题
+		    var wumiiSitePrefix = "http://yoursite.com"; //安装无觅评论插件的网站的域名，如果是放在子域名上，请提供子域名，如"http://blog.wumii.com"。如果这里填写的域名不对，请自行改正。
+		    var wumiiCommentParams = "&pf=JAVASCRIPT";
+	   	</script>
+		<script type="text/javascript" src="http://widget.wumii.cn/ext/cw/widget"></script>
+	</div>
+
+
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/05/201909-20190905-wanmen-python-20190905-python基础2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          python基础2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/03/201909-20190903-python基础-20190901-python基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">python基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#import"><span class="nav-number">1.</span> <span class="nav-text">import</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义一个被线程和进程调用的函数"><span class="nav-number">1.1.</span> <span class="nav-text">定义一个被线程和进程调用的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程和进程"><span class="nav-number">1.2.</span> <span class="nav-text">创建线程和进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动线程和进程"><span class="nav-number">1.3.</span> <span class="nav-text">启动线程和进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分别连接线程和进程"><span class="nav-number">1.4.</span> <span class="nav-text">分别连接线程和进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#full-code"><span class="nav-number">1.5.</span> <span class="nav-text">full code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#use"><span class="nav-number">1.6.</span> <span class="nav-text">use</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queen-use-to-store-process"><span class="nav-number">2.</span> <span class="nav-text">Queen #use to store process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiprocessing-and-threading-compare"><span class="nav-number">3.</span> <span class="nav-text">multiprocessing and threading compare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pool-the-processing-pool"><span class="nav-number">4.</span> <span class="nav-text">Pool #the processing pool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#share-memory-共享内存"><span class="nav-number">5.</span> <span class="nav-text">share memory  (共享内存)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shared-value"><span class="nav-number">5.1.</span> <span class="nav-text">shared value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shared-array"><span class="nav-number">5.2.</span> <span class="nav-text">shared array</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parametric-data-form"><span class="nav-number">6.</span> <span class="nav-text">parametric data form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#processing-lock"><span class="nav-number">7.</span> <span class="nav-text">processing lock</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#no-lock"><span class="nav-number">7.1.</span> <span class="nav-text">no lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#if-we-add-process-lock-l-mp-lock"><span class="nav-number">7.2.</span> <span class="nav-text">if we add process lock ## l=mp.lock()</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 境随心转 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">tags</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            境随心转
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Florian-Gao All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
